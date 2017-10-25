@@ -23,12 +23,11 @@ STARS_CHOICES = (
 )
 
 class User(models.Model) :
-    id = models.AutoField()
     familyname =  models.CharField(max_length=20)
     firstname = models.CharField(max_length=20)
 
+
 class Book(models.Model) :
-    no = models.AutoField()
     title = models.CharField(max_length=100)
     version = models.CharField(max_length=20, blank=True)
     owner = models.ForeignKey('User')
