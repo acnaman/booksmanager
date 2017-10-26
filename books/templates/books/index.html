@@ -1,0 +1,9 @@
+{% if book_list %}
+<ul>
+{% for book in book_list %}
+    <li>{{ book.title }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>まだ本は登録されていません</p>
+{% endif %}

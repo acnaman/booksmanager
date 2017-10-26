@@ -37,4 +37,3 @@ class Book(models.Model) :
     difficulty = models.IntegerField(default=0, choices=DIFFICULTY_CHOICES)
     stars = models.IntegerField(default=3, choices=STARS_CHOICES)
     note = models.CharField(max_length=200, blank=True)
-    
