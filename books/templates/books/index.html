@@ -1,9 +1,42 @@
-{% if book_list %}
-<ul>
-{% for book in book_list %}
-    <li>{{ book.title }}</li>
-{% endfor %}
-</ul>
-{% else %}
-<p>まだ本は登録されていません</p>
-{% endif %}
+{% extends 'books/base.html' %}
+
+{% block content %}
+    {% if book_list %}
+    <ul>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>タイトル</th>
+                        <th>版数(任意)</th>
+                        <th>持ち主</th>
+                        <th>会社所有/私物</th>
+                        <th>分類</th>
+                        <th>所在地</th>
+                        <th>難易度</th>
+                        <th>おすすめ度</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in book_list %}
+                        <tr>
+                            <th>{{ book.title }}</th>
+                            <th>{{ book.version }}</th>
+                            <th>{{ book.owner }}</th>
+                            <th>{{ book.buyer }}</th>
+                            <th>{{ book.genre }}</th>
+                            <th>{{ book.location }}</th>
+                            <th>{{ book.difficulty }}</th>
+                            <th>{{ book.stars }}</th>
+                            <th>{{ book.note }}</th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </ul>
+    {% else %}
+    <p>まだ本は登録されていません</p>
+    {% endif %}
+{% endblock content %}
